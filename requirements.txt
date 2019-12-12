@@ -1,4 +1,3 @@
 glob2
 my-cli
 configparser
-subprocess
