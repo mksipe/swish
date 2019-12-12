@@ -19,6 +19,4 @@ jobs:
         pip install -r requirements.txt
     - name: Pyflakes Syntax Checker
       uses: lgeiger/pyflakes-action@v1.0.1
-    - name: Cleankeeper
-      uses: cometkim/cleankeeper@v1.2.0
       
