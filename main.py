@@ -41,26 +41,10 @@ class load_data():
     #print(SH)
     #print(TYP)
     #print(ATH)
-  def load_lang_support():
-    load_data()
-    dir = "./config/languages/r33/run.py"
-    print("---(Languages)---File Support Check---")
-    support = [
-      "Python_3",
-      "Shell",
-    ]
-    for i in f:
-      run = parser.get('support', 'type')
-      get = parser.get('execution','scriptlocation' )
-      if i in support:
-        if i == run:
-          print("Accepted filetype; Adding to config ... "+run)
-      else:
-        print("Rejected filetype; Rolling over ... "+run)
+
 
         
 load_data.load_files()
 load_data.load_data()
-load_data.load_lang_support()
 
 
