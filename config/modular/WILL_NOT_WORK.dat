@@ -1,0 +1,6 @@
+[execution]
+type = Shell
+
+[validation]
+type = core
+name = redheron

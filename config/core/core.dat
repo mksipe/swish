@@ -1,0 +1,11 @@
+[execution]
+scriptlocation = ./config/core/core.dat
+shell          = /usr/bin/python3
+
+[support]
+author         = <->
+type           = Python_3
+
+[validation]
+type          = core
+name          = core

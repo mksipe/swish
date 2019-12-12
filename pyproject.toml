@@ -1,0 +1,12 @@
+[tool]
+[tool.poetry]
+authors = ["Your Name <you@example.com>"]
+name = "root"
+version = "0.0.0"
+[tool.poetry.dependencies]
+configparser = "*"
+glob = "*"
+my-cli = "*"
+python = "^3.7"
+subprocess = "*"
+sys = "*"
