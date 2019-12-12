@@ -43,23 +43,29 @@ class load_data():
     #print(ATH)
 
 
+core = 0
+module = 0
+
+
 
 class interpreter():
   def countextensives():
-    core = 0 
-    module = 0
+
     c = "core"
     m = "module"
     load_data.load_files()
     f = glob.glob(confdir)
     for i in f:
-     a = parser.get('validation', 'type')
-     str(a)
-    if a == c:
-       core = core + 1
-    if a == m:
-       module = module + 1 
-    print(core, module)
+      config.read(i)
+      a = config.get('validation', 'type')
+      if a == c:
+        global core
+        core = core + 1
+      if a == m:
+        global module
+        module = module + 1
+      print(module, core)
+    
 
 
 interpreter.countextensives()
