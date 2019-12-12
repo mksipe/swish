@@ -23,7 +23,7 @@ class load_data():
             end
           end
       except:
-        print("There was an error processing "+Name+".")
+        print("module loaded.")
         exit
   def load_sections():
       for i in f:
@@ -65,7 +65,7 @@ class interpreter():
       if a == m:
         global module
         module = module + 1
-        print("Addming module ... ")
+        print("Adding module ... ")
     print("Cores   : ", core)
     print("Modules : ", module)
   def initialize_files():

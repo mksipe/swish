@@ -1,0 +1,11 @@
+[execution]
+scriptlocation = ./config/modules/SSH/ssh.py
+shell          = /usr/bin/python3
+
+[support]
+author         = Mason Sipe
+type           = Python_3
+
+[validation]
+type          = module
+name          = SSH
