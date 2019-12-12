@@ -20,8 +20,6 @@ class load_data():
             print("Loaded "+Name)
           else:
             print("file not loaded "+Name+" Reason: "+Type)
-            end
-          end
       except:
         print("module loaded.")
         exit
