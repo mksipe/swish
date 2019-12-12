@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import glob, configparser
+import glob, configparser, subprocess
 confdir = "./config/*/*.dat"
 parser = configparser.ConfigParser()
 config = configparser.RawConfigParser(allow_no_value=True)
@@ -69,5 +69,13 @@ class interpreter():
   def initialize_files():
     load_data.load_data()
     interpreter.countextensives()
+  def run_files():
+    for i in f:
+      config.read(i)
+      FILE = config.get('execution', 'scriptlocation')
+      ENV  = config.get('execution', 'shell')
+      subprocess.call([ENV, FILE], shell=False )
 
 interpreter.initialize_files()
+
+interpreter.run_files()

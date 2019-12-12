@@ -1,6 +1,6 @@
 [execution]
-scriptlocation = ./config/core/core.dat
-shell          = /usr/bin/python3
+scriptlocation = config/core/start.sh
+shell          = sh
 
 [support]
 author         = <->
