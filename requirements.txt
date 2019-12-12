@@ -1,3 +1,2 @@
 glob2
 configparser
-subprocess
