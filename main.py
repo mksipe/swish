@@ -49,8 +49,8 @@ module = 0
 
 
 class interpreter():
+  print("---[Loading data]---")
   def countextensives():
-
     c = "core"
     m = "module"
     load_data.load_files()
@@ -61,11 +61,15 @@ class interpreter():
       if a == c:
         global core
         core = core + 1
+        print("Adding core ... ")
       if a == m:
         global module
         module = module + 1
-      print(module, core)
-    
+        print("Addming module ... ")
+    print("Cores   : ", core)
+    print("Modules : ", module)
+  def initialize_files():
+    load_data.load_data()
+    interpreter.countextensives()
 
-
-interpreter.countextensives()
+interpreter.initialize_files()

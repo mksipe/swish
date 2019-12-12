@@ -2,7 +2,7 @@
 [tool.poetry]
 authors = ["Mason Sipe"]
 name = "root"
-version = "0.1.5"
+version = "0.1.9"
 [tool.poetry.dependencies]
 configparser = "*"
 glob = "*"
