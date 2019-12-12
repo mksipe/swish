@@ -1,4 +1,2 @@
 glob2
-my-cli
 configparser
-pytest-workflow
