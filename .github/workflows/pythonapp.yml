@@ -13,7 +13,9 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
-    - run: bash exec.sh
+    - run: |
+        chmod +x
+        bash exec.sh
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
