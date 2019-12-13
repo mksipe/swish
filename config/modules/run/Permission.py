@@ -10,7 +10,7 @@ class p():
     subprocess.call(['chmod', '400', '/etc/shadow'])
   def attatchattributes(file):
     subprocess.call(['chattr', '+i', file], shell=False)
-  def reurse(file):
+  def recurse(file):
     subprocess.call(['chmod','-R', 'root:root', file], shell=False)
 
 def modifyfile(file):
