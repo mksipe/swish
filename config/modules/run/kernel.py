@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import fileinput
+import fileinput, subprocess
 filename = "/etc/sysctl.conf"
 class kernel():
   def replacevalue(a ,b):
@@ -54,5 +54,5 @@ class kernel():
 
 kernel.network()
 kernel.physical()
-
+subprocess.call(['sysctl','-p'], shell=False)
 
