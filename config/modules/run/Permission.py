@@ -11,7 +11,7 @@ class p():
   def attatchattributes(file):
     subprocess.call(['chattr', '+i', file], shell=False)
   def recurse(file):
-    subprocess.call(['chmod','-R', 'root', file], shell=False)
+    subprocess.call(['chown','-R', 'root:root', file], shell=False)
 
 def modifyfile(file):
   p.detachattributes(file)
