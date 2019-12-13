@@ -1,0 +1,11 @@
+[execution]
+scriptlocation = config/modules/run/kernel.py
+shell          = python3
+
+[support]
+author         = <->
+type           = Python_3
+
+[validation]
+type          = module
+name          = KernelStack
