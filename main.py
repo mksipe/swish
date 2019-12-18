@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import glob, configparser, subprocess
+import glob, configparser, subprocess, hashlib
 confdir = "./config/*/*.dat"
 parser = configparser.ConfigParser()
 config = configparser.RawConfigParser(allow_no_value=True)
@@ -43,8 +43,9 @@ class load_data():
 
 core = 0
 module = 0
+security = 0
 permitted = []
-
+hashed = []
 
 class interpreter():
   print("---[Loading data]---")
@@ -68,15 +69,32 @@ class interpreter():
         permitted.append(i)
     print("Cores   : ", core)
     print("Modules : ", module)
-  def initialize_files():
-    load_data.load_data()
-    interpreter.countextensives()
-  def run_files():
+  def hashfiles():
     for i in permitted:
+      config.read(i)
+      HASH = config.get('validation', 'hash')
+      file = i # Location of the file (can be set a different way)
+      BLOCK_SIZE = 65536 # The size of each read from the file
+      file_hash = hashlib.sha256() # Create the hash object, can use something other than `.sha256()` if you wish
+      with open(file, 'rb') as f: # Open the file to read it's bytes
+        fb = f.read(BLOCK_SIZE) # Read from the file. Take in the amount declared above
+        while len(fb) > 0: # While there is still data being read from the file
+          file_hash.update(fb) # Update the hash
+          fb = f.read(BLOCK_SIZE) # Read the next block from the file
+      #print (i, file_hash.hexdigest()) # Get the hexadecimal digest of the hash
+    if HASH == file_hash.hexdigest():
+      print(i, "Succesfully Hashed.")
+      hashed.append(i)
+  def run_files():
+    for i in hashed:
       config.read(i)
       FILE = config.get('execution', 'scriptlocation')
       ENV  = config.get('execution', 'shell')
       subprocess.call([ENV, FILE], shell=False )
+  def initialize_files():
+    load_data.load_data()
+    interpreter.countextensives()
+    interpreter.hashfiles()
 
 interpreter.initialize_files()
 
