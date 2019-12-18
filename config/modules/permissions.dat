@@ -10,4 +10,3 @@ description    = This file ensures that critical files on the system have the co
 [validation]
 type          = module
 name          = SystemFilePerms
-hash          = c6c02c0bf2897d5864e16b959a6176ad347d70f02e6bd51664ef276c4555f62c

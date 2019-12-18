@@ -9,5 +9,3 @@ type           = Python_3
 [validation]
 type          = core
 name          = core
-hash          = 3464faf94c18e696c2fb27c546e24b666d020190dd25765402883532873cd91e
-#Files are hashed in SHA256

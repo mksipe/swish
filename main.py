@@ -70,9 +70,10 @@ class interpreter():
     print("Cores   : ", core)
     print("Modules : ", module)
   def hashfiles():
+    print('---[Hashing Files]---')
     for i in permitted:
-      config.read(i)
-      HASH = config.get('validation', 'hash')
+      config.read('./config/core/hashes.asc')
+      HASH = config.get('security', i)
       file = i # Location of the file (can be set a different way)
       BLOCK_SIZE = 65536 # The size of each read from the file
       file_hash = hashlib.sha256() # Create the hash object, can use something other than `.sha256()` if you wish
@@ -82,9 +83,12 @@ class interpreter():
           file_hash.update(fb) # Update the hash
           fb = f.read(BLOCK_SIZE) # Read the next block from the file
       #print (i, file_hash.hexdigest()) # Get the hexadecimal digest of the hash
-    if HASH == file_hash.hexdigest():
-      print(i, "Succesfully Hashed.")
-      hashed.append(i)
+      if HASH == file_hash.hexdigest():
+          print(i, "Succesfully Hashed.")
+          hashed.append(i)
+      else:
+        print(i, "Could not validate hash.")
+
   def run_files():
     for i in hashed:
       config.read(i)
