@@ -43,7 +43,7 @@ class load_data():
 
 core = 0
 module = 0
-
+permitted = []
 
 
 class interpreter():
@@ -60,17 +60,19 @@ class interpreter():
         global core
         core = core + 1
         print("Adding core ... ")
+        permitted.append(i)
       if a == m:
         global module
         module = module + 1
         print("Adding module ... ")
+        permitted.append(i)
     print("Cores   : ", core)
     print("Modules : ", module)
   def initialize_files():
     load_data.load_data()
     interpreter.countextensives()
   def run_files():
-    for i in f:
+    for i in permitted:
       config.read(i)
       FILE = config.get('execution', 'scriptlocation')
       ENV  = config.get('execution', 'shell')
