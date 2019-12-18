@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-import glob, configparser, subprocess, hashlib
+import glob, configparser, subprocess
+import hashlib
 confdir = "./config/*/*.dat"
 parser = configparser.ConfigParser()
 config = configparser.RawConfigParser(allow_no_value=True)
