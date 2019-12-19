@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-import glob, configparser, subprocess
-import hashlib
+import glob, configparser, subprocess, hashlib, sys, config.core.DSP as d
 confdir = "./config/*/*.dat"
 parser = configparser.ConfigParser()
 config = configparser.RawConfigParser(allow_no_value=True)
 f = glob.glob(confdir)
-
 class load_data():
   def load_files():
     for i in f:
@@ -71,7 +69,8 @@ class interpreter():
     print("Cores   : ", core)
     print("Modules : ", module)
   def hashfiles():
-    print('---[Hashing Files]---')
+    print("---[Hashing Files]---")
+    zero = 1
     for i in permitted:
       config.read('./config/core/hashes.asc')
       HASH = config.get('security', i)
@@ -85,7 +84,9 @@ class interpreter():
           fb = f.read(BLOCK_SIZE) # Read the next block from the file
       #print (i, file_hash.hexdigest()) # Get the hexadecimal digest of the hash
       if HASH == file_hash.hexdigest():
-          print(i, "Succesfully Hashed.")
+          d.display.center(zero,30,"Succesfully Hashed: " + i)
+          zero = zero + 1
+          #print(zero)
           hashed.append(i)
       else:
         print(i, "Could not validate hash.")
