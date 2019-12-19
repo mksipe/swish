@@ -4,6 +4,7 @@ confdir = "./config/*/*.dat"
 parser = configparser.ConfigParser()
 config = configparser.RawConfigParser(allow_no_value=True)
 f = glob.glob(confdir)
+a = sys.copyright
 class load_data():
   def load_files():
     for i in f:
